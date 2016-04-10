@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports.get = function* () {
-  this.body = {
+module.exports.get = function (ctx) {
+  ctx.body = {
     success : true
   };
 };

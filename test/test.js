@@ -140,7 +140,7 @@ describe('koaspec', function () {
     });
 
     it('provides a simple route.', function* () {
-      const app = koa();
+      const app = new koa();
 
       const spec = koaspec('test/data/simple.yaml', OPTIONS_TEST);
       const router = spec.router();
@@ -196,7 +196,7 @@ describe('koaspec', function () {
     });
 
     it('provides fallback for not implemented routes (unknown controller) when strict mode is disabled.', function* () {
-      const app = koa();
+      const app = new koa();
 
       const options = _.merge({}, OPTIONS_TEST, {
         routerOptions : {
@@ -220,7 +220,7 @@ describe('koaspec', function () {
     });
 
     it('provides fallback for not implemented routes (unknown controller method) when strict mode is disabled.', function* () {
-      const app = koa();
+      const app = new koa();
 
       const options = _.merge({}, OPTIONS_TEST, {
         routerOptions : {
@@ -244,7 +244,7 @@ describe('koaspec', function () {
     });
 
     it('ignores unknown routes.', function* () {
-      const app = koa();
+      const app = new koa();
 
       const spec = koaspec('test/data/simple.yaml', OPTIONS_TEST);
 
@@ -263,7 +263,7 @@ describe('koaspec', function () {
 
       describe('path', function () {
         it('supports a single path parameter.', function* () {
-          const app = koa();
+          const app = new koa();
 
           const spec = koaspec('test/data/path_parameter_integer_int32_single.yaml', OPTIONS_TEST);
 
@@ -282,7 +282,7 @@ describe('koaspec', function () {
         });
 
         it('supports multiple path parameters.', function* () {
-          const app = koa();
+          const app = new koa();
 
           const spec = koaspec('test/data/path_parameter_integer_int32_multiple.yaml', OPTIONS_TEST);
 
@@ -305,7 +305,7 @@ describe('koaspec', function () {
 
       describe('query', function () {
         it('supports boolean query parameters.', function* () {
-          const app = koa();
+          const app = new koa();
 
           const spec = koaspec('test/data/query_parameter_boolean.yaml', OPTIONS_TEST);
 
@@ -327,7 +327,7 @@ describe('koaspec', function () {
         });
 
         it('supports integer (int32) query parameters.', function* () {
-          const app = koa();
+          const app = new koa();
 
           const spec = koaspec('test/data/query_parameter_integer_int32.yaml', OPTIONS_TEST);
 
@@ -349,7 +349,7 @@ describe('koaspec', function () {
         });
 
         it('supports integer (int64) query parameters.', function* () {
-          const app = koa();
+          const app = new koa();
 
           const spec = koaspec('test/data/query_parameter_integer_int64.yaml', OPTIONS_TEST);
 
@@ -371,7 +371,7 @@ describe('koaspec', function () {
         });
 
         it('supports number (float) query parameters.', function* () {
-          const app = koa();
+          const app = new koa();
 
           const spec = koaspec('test/data/query_parameter_number_float.yaml', OPTIONS_TEST);
 
@@ -393,7 +393,7 @@ describe('koaspec', function () {
         });
 
         it('supports number (double) query parameters.', function* () {
-          const app = koa();
+          const app = new koa();
 
           const spec = koaspec('test/data/query_parameter_number_double.yaml', OPTIONS_TEST);
 
@@ -415,7 +415,7 @@ describe('koaspec', function () {
         });
 
         it('supports string (date-time) query parameters.', function* () {
-          const app = koa();
+          const app = new koa();
 
           const spec = koaspec('test/data/query_parameter_string_datetime.yaml', OPTIONS_TEST);
 
@@ -439,7 +439,7 @@ describe('koaspec', function () {
         });
 
         it('supports string (uuid) query parameters.', function* () {
-          const app = koa();
+          const app = new koa();
 
           const spec = koaspec('test/data/query_parameter_string_uuid.yaml', OPTIONS_TEST);
 
@@ -461,7 +461,7 @@ describe('koaspec', function () {
         });
 
         it('supports string (isbn) query parameters.', function* () {
-          const app = koa();
+          const app = new koa();
 
           const spec = koaspec('test/data/query_parameter_string_isbn.yaml', OPTIONS_TEST);
 
@@ -505,7 +505,7 @@ describe('koaspec', function () {
 
         it('supports simple object body parameters.', function* () {
           const bodyParser = require('koa-bodyparser');
-          const app = koa();
+          const app = new koa();
 
           app.use(bodyParser());
 
@@ -532,7 +532,7 @@ describe('koaspec', function () {
 
         it('supports complex object body parameters.', function* () {
           const bodyParser = require('koa-bodyparser');
-          const app = koa();
+          const app = new koa();
 
           app.use(bodyParser());
 
@@ -565,7 +565,7 @@ describe('koaspec', function () {
 
         it('supports circular object body parameters.', function* () {
           const bodyParser = require('koa-bodyparser');
-          const app = koa();
+          const app = new koa();
 
           app.use(bodyParser());
 
@@ -609,7 +609,7 @@ describe('koaspec', function () {
 
         it('supports simple array body parameters.', function* () {
           const bodyParser = require('koa-bodyparser');
-          const app = koa();
+          const app = new koa();
 
           app.use(bodyParser());
 
@@ -647,7 +647,7 @@ describe('koaspec', function () {
 
         it('supports complex array body parameters.', function* () {
           const bodyParser = require('koa-bodyparser');
-          const app = koa();
+          const app = new koa();
 
           app.use(bodyParser());
 
@@ -716,7 +716,7 @@ describe('koaspec', function () {
 
         it('supports circular array body parameters.', function* () {
           const bodyParser = require('koa-bodyparser');
-          const app = koa();
+          const app = new koa();
 
           app.use(bodyParser());
 
@@ -768,7 +768,7 @@ describe('koaspec', function () {
 
         it('supports arrays with primitive (non-object) items.', function* () {
           const bodyParser = require('koa-bodyparser');
-          const app = koa();
+          const app = new koa();
 
           app.use(bodyParser());
 
@@ -824,7 +824,7 @@ describe('koaspec', function () {
 
         it('supports integer (int32) form parameters.', function* () {
           const bodyParser = require('koa-bodyparser');
-          const app = koa();
+          const app = new koa();
 
           app.use(bodyParser());
 
@@ -862,7 +862,7 @@ describe('koaspec', function () {
 
         describe('query', function () {
           it('detects a missing required query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_integer_int32_required.yaml', OPTIONS_TEST);
 
@@ -882,7 +882,7 @@ describe('koaspec', function () {
           });
 
           it('allows passing a required query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_integer_int32_required.yaml', OPTIONS_TEST);
 
@@ -904,7 +904,7 @@ describe('koaspec', function () {
           });
 
           it('allows missing a non required query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_integer_int32.yaml', OPTIONS_TEST);
 
@@ -922,7 +922,7 @@ describe('koaspec', function () {
           });
 
           it('detects an invalid query parameter type.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/invalid_query_parameter_type.yaml', OPTIONS_TEST);
 
@@ -944,7 +944,7 @@ describe('koaspec', function () {
           });
 
           it('detects an invalid integer query parameter format.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/invalid_query_parameter_format_integer_int96.yaml', OPTIONS_TEST);
 
@@ -966,7 +966,7 @@ describe('koaspec', function () {
           });
 
           it('detects an invalid string query parameter format.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/invalid_query_parameter_format_string_ssn.yaml', OPTIONS_TEST);
 
@@ -988,7 +988,7 @@ describe('koaspec', function () {
           });
 
           it('detects an invalid number query parameter format.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/invalid_query_parameter_format_number_triple.yaml', OPTIONS_TEST);
 
@@ -1010,7 +1010,7 @@ describe('koaspec', function () {
           });
 
           it('detects an invalid query parameter source.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/invalid_query_parameter_source.yaml', OPTIONS_TEST);
 
@@ -1032,7 +1032,7 @@ describe('koaspec', function () {
           });
 
           it('detects an invalid boolean query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_boolean.yaml', OPTIONS_TEST);
 
@@ -1054,7 +1054,7 @@ describe('koaspec', function () {
           });
 
           it('detects an invalid integer query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_integer_int32.yaml', OPTIONS_TEST);
 
@@ -1076,7 +1076,7 @@ describe('koaspec', function () {
           });
 
           it('detects an invalid integer query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_integer_int32.yaml', OPTIONS_TEST);
 
@@ -1098,7 +1098,7 @@ describe('koaspec', function () {
           });
 
           it('detects an out of upper bounds integer (int32) query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_integer_int32.yaml', OPTIONS_TEST);
 
@@ -1120,7 +1120,7 @@ describe('koaspec', function () {
           });
 
           it('detects an out of lower bounds integer (int32) query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_integer_int32.yaml', OPTIONS_TEST);
 
@@ -1142,7 +1142,7 @@ describe('koaspec', function () {
           });
 
           it('detects an out of upper bounds integer (int64) query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_integer_int64.yaml', OPTIONS_TEST);
 
@@ -1164,7 +1164,7 @@ describe('koaspec', function () {
           });
 
           it('detects an out of lower bounds integer (int64) query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_integer_int64.yaml', OPTIONS_TEST);
 
@@ -1186,7 +1186,7 @@ describe('koaspec', function () {
           });
 
           it('detects an invalid number query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_number_float.yaml', OPTIONS_TEST);
 
@@ -1208,7 +1208,7 @@ describe('koaspec', function () {
           });
 
           it('detects an out of upper bounds number (float) query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_number_float.yaml', OPTIONS_TEST);
 
@@ -1230,7 +1230,7 @@ describe('koaspec', function () {
           });
 
           it('detects an out of lower bounds number (float) query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_number_float.yaml', OPTIONS_TEST);
 
@@ -1252,7 +1252,7 @@ describe('koaspec', function () {
           });
 
           it('detects an invalid string (date-time) query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_string_datetime.yaml', OPTIONS_TEST);
 
@@ -1274,7 +1274,7 @@ describe('koaspec', function () {
           });
 
           it('detects an invalid string (uuid) query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_string_uuid.yaml', OPTIONS_TEST);
 
@@ -1296,7 +1296,7 @@ describe('koaspec', function () {
           });
 
           it('detects an invalid string (isbn) query parameter.', function* () {
-            const app = koa();
+            const app = new koa();
 
             const spec = koaspec('test/data/query_parameter_string_isbn.yaml', OPTIONS_TEST);
 
@@ -1321,7 +1321,7 @@ describe('koaspec', function () {
         describe('body', function () {
           it('detects an invalid object body parameter.', function* () {
             const bodyParser = require('koa-bodyparser');
-            const app = koa();
+            const app = new koa();
 
             app.use(bodyParser());
 
@@ -1346,7 +1346,7 @@ describe('koaspec', function () {
 
           it('detects a missing schema in an object body parameter.', function* () {
             const bodyParser = require('koa-bodyparser');
-            const app = koa();
+            const app = new koa();
 
             app.use(bodyParser());
 
@@ -1371,7 +1371,7 @@ describe('koaspec', function () {
 
           it('detects a missing required parameter in an object body parameter.', function* () {
             const bodyParser = require('koa-bodyparser');
-            const app = koa();
+            const app = new koa();
 
             app.use(bodyParser());
 
@@ -1394,7 +1394,7 @@ describe('koaspec', function () {
 
           it('detects a missing schema properties in an object body parameter.', function* () {
             const bodyParser = require('koa-bodyparser');
-            const app = koa();
+            const app = new koa();
 
             app.use(bodyParser());
 
@@ -1419,7 +1419,7 @@ describe('koaspec', function () {
 
           it('uses default behavior when passing null for a required body property.', function* () {
             const bodyParser = require('koa-bodyparser');
-            const app = koa();
+            const app = new koa();
 
             app.use(bodyParser());
 
@@ -1445,7 +1445,7 @@ describe('koaspec', function () {
 
           it('allows passing null for an x-nullable required body property.', function* () {
             const bodyParser = require('koa-bodyparser');
-            const app = koa();
+            const app = new koa();
 
             app.use(bodyParser());
 
@@ -1469,7 +1469,7 @@ describe('koaspec', function () {
 
           it('detects passing null for an not x-nullable required body property.', function* () {
             const bodyParser = require('koa-bodyparser');
-            const app = koa();
+            const app = new koa();
 
             app.use(bodyParser());
 
@@ -1495,7 +1495,7 @@ describe('koaspec', function () {
 
           it('detects a schema with an invalid type in an object body parameter.', function* () {
             const bodyParser = require('koa-bodyparser');
-            const app = koa();
+            const app = new koa();
 
             app.use(bodyParser());
 
@@ -1520,7 +1520,7 @@ describe('koaspec', function () {
 
           it('detects an invalid complex object body parameter.', function* () {
             const bodyParser = require('koa-bodyparser');
-            const app = koa();
+            const app = new koa();
 
             app.use(bodyParser());
 
@@ -1551,7 +1551,7 @@ describe('koaspec', function () {
 
           it('detects an invalid array body parameter.', function* () {
             const bodyParser = require('koa-bodyparser');
-            const app = koa();
+            const app = new koa();
 
             app.use(bodyParser());
 
@@ -1576,7 +1576,7 @@ describe('koaspec', function () {
 
           it('detects missing items in an array body parameter.', function* () {
             const bodyParser = require('koa-bodyparser');
-            const app = koa();
+            const app = new koa();
 
             app.use(bodyParser());
 

@@ -50,8 +50,10 @@
     "codeclimate-test-reporter": "0.3.1",
     "coveralls": "2.11.6",
     "istanbul": "0.4.2",
-    "koa": "1.1.2",
-    "koa-bodyparser": "2.0.1",
+    "koa-static": "",
+    "koa-convert": "",
+    "koa": "2.0.0",
+    "koa-bodyparser": "3.0.0",
     "mocha": "2.4.5",
     "mocha-lcov-reporter": "1.0.0",
     "mockery": "1.4.0",
@@ -64,6 +66,7 @@
     "http-status": "0.2.0",
     "js-yaml": "3.5.2",
     "json-refs": "2.1.5",
+    "koa-bodyparser": "^3.0.0",
     "koa-router": "7.0.1",
     "lodash": "4.2.1"
   }

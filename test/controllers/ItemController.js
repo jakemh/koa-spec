@@ -1,27 +1,27 @@
 'use strict';
 
-module.exports.getByQueryId = function* () {
-  this.body = {
-    id : this.query.id
+module.exports.getByQueryId = function (ctx) {
+  ctx.body = {
+    id : ctx.query.id
   };
 };
 
-module.exports.getByFormDataId = function* () {
-  this.body = {
-    id : this.request.body.id
+module.exports.getByFormDataId = function (ctx) {
+  ctx.body = {
+    id : ctx.request.body.id
   };
 };
 
-module.exports.getByPathId = function* () {
-  this.body = {
-    id : this.params.id
+module.exports.getByPathId = function (ctx) {
+  ctx.body = {
+    id : ctx.params.id
   };
 };
 
-module.exports.getByPathABC = function* () {
-  this.body = {
-    a : this.params.a,
-    b : this.params.b,
-    c : this.params.c
+module.exports.getByPathABC = function (ctx) {
+  ctx.body = {
+    a : ctx.params.a,
+    b : ctx.params.b,
+    c : ctx.params.c
   };
 };

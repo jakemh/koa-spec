@@ -1,15 +1,15 @@
 'use strict';
 
-module.exports.getByQueryISBN = function* () {
-  this.body = {
+module.exports.getByQueryISBN = function (ctx) {
+  ctx.body = {
     id   : 1,
-    isbn : this.query.isbn
+    isbn : ctx.query.isbn
   };
 };
 
-module.exports.createFromBody = function* () {
-  const body = this.request.body; // TODO Want this to be just "body" not "request.body" ?
-  this.body = {
+module.exports.createFromBody = function (ctx) {
+  const body = ctx.request.body; // TODO Want ctx to be just "body" not "request.body" ?
+  ctx.body = {
     id        : 1,
     isbn      : body.isbn,
     authors   : body.authors,
@@ -17,9 +17,9 @@ module.exports.createFromBody = function* () {
   };
 };
 
-module.exports.createFromBodyArray = function* () {
-  const body = this.request.body; // TODO Want this to be just "body" not "request.body" ?
-  this.body = [
+module.exports.createFromBodyArray = function (ctx) {
+  const body = ctx.request.body; // TODO Want ctx to be just "body" not "request.body" ?
+  ctx.body = [
     {
       id        : 1,
       isbn      : body[0].isbn,

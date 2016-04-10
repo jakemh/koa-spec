@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports.createFromBody = function* () {
-  this.body = this.request.body;
+module.exports.createFromBody = function (ctx) {
+  ctx.body = ctx.request.body;
 };

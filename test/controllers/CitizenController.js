@@ -1,13 +1,13 @@
 'use strict';
 
-module.exports.getByQuerySSN = function* () {
-  this.body = {
-    ssn : this.query.ssn
+module.exports.getByQuerySSN = function (ctx) {
+  ctx.body = {
+    ssn : ctx.query.ssn
   };
 };
 
-module.exports.getByDateOfBirth = function* () {
-  this.body = {
-    date_of_birth : this.query.date_of_birth
+module.exports.getByDateOfBirth = function (ctx) {
+  ctx.body = {
+    date_of_birth : ctx.query.date_of_birth
   };
 };

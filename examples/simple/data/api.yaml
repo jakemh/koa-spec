@@ -5,7 +5,7 @@ info:
 paths:
   /:
     get:
-      x-controller: IndexController
+      x-controller: IndexsController
       x-controller-method: get
       responses:
         200:
